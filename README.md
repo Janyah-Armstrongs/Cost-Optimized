@@ -22,62 +22,11 @@ This Terraform project provisions a cost-efficient AWS environment for developme
 ```bash
 git clone https://github.com/yourusername/your-repo.git
 cd your-repo
-Edit variables if needed:
 
-Open variables.tf to customize AMI ID, instance type, budget limit, email for alerts, and region.
+2. **Edit variables if needed:**  
+   Open `variables.tf` to customize AMI ID, instance type, budget limit, email for alerts, and region.
 
-Prepare the Lambda deployment package:
-
-Make sure your lambda_function.py (provided in the repo) is zipped as lambda_function.zip.
-
-bash
-Copy
-Edit
-zip lambda_function.zip lambda_function.py
-Initialize Terraform:
-
-bash
-Copy
-Edit
-terraform init
-Preview the changes Terraform will make:
-
-bash
-Copy
-Edit
-terraform plan
-Apply the Terraform plan:
-
-bash
-Copy
-Edit
-terraform apply
-Confirm the apply when prompted.
-
- ## How It Works
-EC2 instance is launched with tags for environment tracking.
-
-AWS Budget tracks the cost of resources tagged with the environment.
-
-If spending exceeds 80% of the budget, an email notification is sent.
-
-A Lambda function is scheduled daily to stop all running dev EC2 instances automatically.
-
-IAM roles and permissions allow Lambda to safely manage EC2 instances and log actions.
-
-Customization
-Change variables in variables.tf to fit your environment.
-
-Update the Lambda code to modify stopping behavior or extend functionality.
-
-Adjust the CloudWatch event schedule in main.tf to change when instances stop.
-
-Modify the budget amount or alert threshold as needed.
-
-Update the notification email to your preferred contact.
-
-Notes
-The default AMI ID is for us-east-1. Update it if using a different region.
-
-Remember to keep .terraform.lock.hcl local and exclude it from your repo with .gitignore.
-
+3. **Prepare the Lambda deployment package:**  
+   Make sure your `lambda_function.py` (provided in the repo) is zipped as `lambda_function.zip`.  
+   ```bash
+   zip lambda_function.zip lambda_function.py
