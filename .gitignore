@@ -1,0 +1,29 @@
+# Terraform local state and files
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Lock file (optional to ignore, but usually kept in repo)
+# .terraform.lock.hcl
+
+# Crash logs
+crash.log
+
+# Ignore Terraform variable files with secrets
+*.tfvars
+*.tfvars.json
+
+# Ignore any ZIP files (like your Lambda zip)
+*.zip
+
+# Ignore environment variable files
+*.env
+
+# Ignore editor folders/files
+.vscode/
+.idea/
+*.swp
+
+# Ignore system files
+.DS_Store
+Thumbs.db
