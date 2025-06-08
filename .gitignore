@@ -4,9 +4,6 @@
 .terraform/
 .terraform.lock.hcl
 
-# Lock file (optional to ignore, but usually kept in repo)
-# .terraform.lock.hcl
-
 # Crash logs
 crash.log
 
