@@ -13,8 +13,6 @@ This Terraform project provisions a cost-efficient AWS environment for developme
 - **(Optional)** Deploys a Lambda function that stops dev EC2 instances every day at 7 PM to reduce costs.
 - **Enforces resource tagging** for easier cost tracking and management.
 
----
-
 ## How to Use
 
 1. **Clone this repository:**
@@ -30,3 +28,11 @@ cd your-repo
    Make sure your `lambda_function.py` (provided in the repo) is zipped as `lambda_function.zip`.  
    ```bash
    zip lambda_function.zip lambda_function.py
+
+## How It Works
+
+- An EC2 instance is launched with tags for environment tracking.
+- AWS Budget tracks the cost of resources tagged with the environment.
+- If spending exceeds 80% of the budget, an email notification is sent.
+- A Lambda function is scheduled daily to stop all running dev EC2 instances automatically.
+- IAM roles and permissions allow Lambda to safely manage EC2 instances and log actions.
