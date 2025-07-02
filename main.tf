@@ -22,7 +22,7 @@ resource "aws_budgets_budget" "monthly_budget" {
   time_unit    = "MONTHLY"
 
   cost_filter {
-    name   = "TagKeyValue"
+    name   = "TurnOffDev" 
     values = ["Env$${var.env}"]
   }
 
