@@ -8,12 +8,12 @@ resource "aws_instance" "test_instance" {
   instance_type = var.instance_type
 
   tags = {
-    Name = "MyProject-Dev"
+    Name = "MyProject-Test"
     Env  = var.env
   }
 }
 
-# Budget for dev environment cost monitoring
+# Budget for test environment cost monitoring
 resource "aws_budgets_budget" "monthly_budget" {
   name         = "MyProject-TestBudget"
   budget_type  = "COST"
