@@ -22,7 +22,7 @@ resource "aws_budgets_budget" "monthly_budget" {
   time_unit    = "MONTHLY"
 
   cost_filter {
-    name   = "TurnOffDev" 
+    name   = "TurnOffTest" 
     values = ["Env$${var.env}"]
   }
 
@@ -80,7 +80,7 @@ resource "aws_iam_role_policy_attachment" "lambda_policy_attach" {
   policy_arn = aws_iam_policy.test_lambda_ec2_stop_policy.arn
 }
 
-# Lambda function to stop dev EC2 instances
+# Lambda function to stop test EC2 instances
 resource "aws_lambda_function" "stop_test_instances" {
   filename         = "lambda_function.zip"
   function_name    = "stop_test_instances"
@@ -99,7 +99,7 @@ resource "aws_cloudwatch_event_rule" "daily_7pm" {
 # CloudWatch Event Target - invokes Lambda on schedule
 resource "aws_cloudwatch_event_target" "invoke_lambda" {
   rule      = aws_cloudwatch_event_rule.daily_7pm.name
-  target_id = "stop-dev-lambda"
+  target_id = "invoke_lambda"
   arn       = aws_lambda_function.stop_test_instances.arn
 }
 
