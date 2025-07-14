@@ -1,7 +1,7 @@
 # Cost-Optimized Dev/Test Environment
 
 ## Overview
-This Terraform project provisions a cost-efficient AWS environment for development and testing. It automates the creation and management of EC2 instances, budget monitoring, and optional automatic stopping of dev instances after hours to save money.
+This Terraform project provisions a cost-efficient AWS environment for development and testing. It automates the creation and management of EC2 instances, budget monitoring, and optional automatic stopping of test instances after hours to save money.
 
 ---
 
