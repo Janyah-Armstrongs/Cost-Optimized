@@ -22,8 +22,10 @@ resource "aws_budgets_budget" "monthly_budget" {
   time_unit    = "MONTHLY"
 
   cost_filter {
-    name   = "TurnOffTest" 
-    values = ["Env$${var.env}"]
+    name = "Service"
+    values = [
+      "Amazon Elastic Compute Cloud - Compute",
+    ]
   }
 
   notification {
